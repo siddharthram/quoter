@@ -36,6 +36,7 @@ a {
   min-width:100%;
   max-width:100%;
   height: auto;
+  display:inline-block;
 }
 
 .caption_overlay {
@@ -45,6 +46,7 @@ a {
   font-variant:normal;
   font-weight:100;
   line-height:44px;
+  display:inline-block;
 }
 
 .caption_overlay {
@@ -57,6 +59,9 @@ a {
   color:white;
   transform:translateY(100%);
   transition:transform .5s ease-out;
+  -webkit-transform:translateY(100%);
+  -webkit-transition:transform .5s ease-out;
+  display:inline-block;
 }
 
 .caption_overlay_title {
@@ -64,16 +69,21 @@ a {
   padding: 0 0 12px;
   transform:translateY(calc(-100% - 10px));
   transition:transform .35s ease-in-out;
-  -webkit-transform:-webkit-translateY(calc(-100% - 10px));
+  -webkit-transform:translateY(calc(-100% - 10px));
+  -webkit-transition:transform .35s ease-in-out;
+  display:inline-block;
 }
 
 .caption:hover .caption_overlay {
   transform:translateY(0);
+  -webkit-transform:translateY(0);
+  display:inline-block;
 }
 
 .caption:hover .caption__overlay__title {
   transform:translateY(0);
-  -webkit-transform:-webkit-translateY(0);
+  -webkit-transform:translateY(0);
+  display:inline-block;
 }
 
 .caption::before {
@@ -85,6 +95,9 @@ a {
   left:0;
   background:transparent;
   transition:background .35s ease-out;
+  -webkit-transition:background .35s ease-out;
+  display:inline-block;
+
 }
 .caption:hover::before {
   background:rgba(0, 0, 0, .5);
