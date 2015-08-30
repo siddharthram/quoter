@@ -40,22 +40,20 @@ function getPic(theme, callback) {
         if (!i_err && i_response.statusCode == 200) {
             var i_info = JSON.parse(i_body);
            // console.log('==info-==', i_info);
-            console.log(i_info.data[0].link);
-            photo = i_info.data[0].link;
+            var i_offset = random(0, i_info.data.length);
+            console.log(i_info.data[i_offset].link);
+            photo = i_info.data[i_offset].link;
             // get the reddit quote
             request(reddit_options, function (r_err, r_response, r_body) {
 
                 var r_info = JSON.parse(r_body);
-                console.log ("body is ", JSON.stringify(r_info));
+                //console.log ("body is ", JSON.stringify(r_info));
 
                 if (!r_err && r_response.statusCode == 200) {
                     //console.log ("==reddit:====",r_info );
-                    var offset = random (1, r_info.data.children.length);
-                    console.log ("offset is" + offset);
-                   // if (r_info.data.children.length > 1) {
-                     //   offset = 1;
-                    //}
-                    quote = r_info.data.children[offset].data.title;
+                    var r_offset = random (1, r_info.data.children.length);
+                    console.log ("offset is" + r_offset);
+                    quote = r_info.data.children[r_offset].data.title;
                     console.log ("qbote is..", quote);
                     var ret = {
                         photo_url: photo,
