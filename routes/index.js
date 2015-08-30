@@ -17,7 +17,9 @@ router.get('/', function(req, res, next) {
 
 
 function getPic(theme, callback) {
-    var imgur_key =  properties.get('imgur-client');
+    //var imgur_key =  properties.get('imgur-client');
+    var imgur_key = process.env.IMGUR_CLIENT;
+    console.log ("imgur key is", imgur_key);
     var auth = 'Client-ID ' + imgur_key;
     //var agent =  "NodeJS:" + auth + ":<v.1>" + "\(by \/u\/\<srram\>\)";
     var agent =  "NodeJS:v.1 by /u/srram";
