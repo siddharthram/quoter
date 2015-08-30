@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
   /*
@@ -9,10 +9,72 @@ background:
 
   /* This will ensure everywhere is covered */
   background-size: cover;
-}
 
+}
+.imgur {
+linear-gradient(
+rgba(1.0, 1.0, 0, 0.5),
+rgba(1.0, 0, 0, 0.5)
+);
+  background-color: #0000FF;
+  border-color: red;
+}
 
 
 a {
   color: #00B7FF;
+}
+
+.caption {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.caption_media {
+  display: block;
+  min-width:100%;
+  max-width:100%;
+  height: auto;
+}
+
+.caption_overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform .35s ease-out;
+}
+
+.caption_overlay_title {
+  margin: 0;
+  padding: 0 0 12px;
+  transform: translateY( calc(-100% - 10px) );
+  transition: transform .35s ease-in-out;
+}
+
+.caption:hover .caption_overlay {
+  transform: translateY(0);
+}
+
+.caption:hover .caption__overlay__title {
+  transform: translateY(0);
+}
+
+.caption::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  transition: background .35s ease-out;
+}
+.caption:hover::before {
+  background: rgba(0, 0, 0, .5);
 }
