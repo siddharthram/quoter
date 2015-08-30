@@ -60,7 +60,7 @@ a {
   transform:translateY(100%);
   transition:transform .5s ease-out;
   -webkit-transform:translateY(100%);
-  -webkit-transition:transform .5s ease-out;
+  -webkit-transition:-webkit-transform .5s ease-out;
   display:inline-block;
 }
 
@@ -70,7 +70,7 @@ a {
   transform:translateY(calc(-100% - 10px));
   transition:transform .35s ease-in-out;
   -webkit-transform:translateY(calc(-100% - 10px));
-  -webkit-transition:transform .35s ease-in-out;
+  -webkit-transition:-webkit-transform .35s ease-in-out;
   display:inline-block;
 }
 
