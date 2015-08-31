@@ -6,9 +6,12 @@ var console = require('console');
 var request = require('request');
 var imgur_url = 'https://api.imgur.com/3/gallery/search/\?q\="earthporn"';
 var reddit_url = 'http://api.reddit.com/r/quotes/hot.json?perPage=1'
+var ua = require('universal-analytics');
+var visitor = ua('UA-66924785-1');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    visitor.pageview("/").send();
         getPic("landscape", function (ret) {
             res.render('index', {photo_url: ret.photo_url, quote: ret.quote});
         });
@@ -42,7 +45,8 @@ function getPic(theme, callback) {
         if (!i_err && i_response.statusCode == 200) {
             var i_info = JSON.parse(i_body);
            // console.log('==info-==', i_info);
-            var i_offset = random(0, i_info.data.length);
+            var i_offset = random(0, i_info.data.length-1);
+            console.log ("ioffset is for length", i_offset, i_info.data.length-1);
             console.log(i_info.data[i_offset].link);
             photo = i_info.data[i_offset].link;
             // get the reddit quote
@@ -53,7 +57,7 @@ function getPic(theme, callback) {
 
                 if (!r_err && r_response.statusCode == 200) {
                     //console.log ("==reddit:====",r_info );
-                    var r_offset = random (1, r_info.data.children.length);
+                    var r_offset = random (1, r_info.data.children.length-1);
                     console.log ("offset is" + r_offset);
                     quote = r_info.data.children[r_offset].data.title;
                     console.log ("qbote is..", quote);
