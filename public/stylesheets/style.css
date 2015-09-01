@@ -1,7 +1,5 @@
 body {
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
   /*
 background:
 */
@@ -9,15 +7,6 @@ background:
 
   /* This will ensure everywhere is covered */
   background-size: cover;
-
-}
-.imgur {
-linear-gradient(
-rgba(1.0, 1.0, 0, 0.5),
-rgba(1.0, 0, 0, 0.5)
-);
-  background-color: #0000FF;
-  border-color: red;
 }
 
 
@@ -28,7 +17,6 @@ a {
 .caption {
   position: relative;
   overflow: hidden;
-  transform:translateZ(0);
 }
 
 .caption_media {
@@ -59,37 +47,27 @@ a {
   color:white;
   transform:translateY(100%);
   transition:transform .5s ease-out;
-  -webkit-transform:translateY(100%);
-  -webkit-transition:-webkit-transform .5s ease-out;
-  display:inline-block;
 }
+
 
 .caption_overlay_title {
   margin: 0;
   padding: 0 0 12px;
   transform:translateY(calc(-100% - 10px));
   transition:transform .35s ease-in-out;
-  -webkit-transform:translateY(calc(-100% - 10px));
-  -webkit-transition:-webkit-transform .35s ease-in-out;
-  -webkit-transform: translate3d(0,0,0);
-  -webkit-transform: translateZ(0);
-  display:inline-block;
+  display: inline-block;
 }
 
-.caption:hover, .caption:focus .caption_overlay {
+.caption:hover, .caption_overlay_title {
   transform:translateY(0);
-  -webkit-transform:translateY(0);
-  -webkit-transform: translateZ(0);
-  display:inline-block;
 }
 
-.caption:hover, .caption:focus .caption__overlay__title {
+.caption:hover, .caption__overlay {
   transform:translateY(0);
-  -webkit-transform:translateY(0);
-  display:inline-block;
 }
-
-.caption::before {
+*/
+/*
+.caption ::before {
   content:' ';
   position:absolute;
   top:0;
@@ -99,9 +77,11 @@ a {
   background:transparent;
   transition:background .35s ease-out;
   -webkit-transition:background .35s ease-out;
-  display:inline-block;
+}
 
-}
-.caption:hover::before {
+.caption:hover ::before {
   background:rgba(0, 0, 0, .5);
+  display: inline-block;
 }
+
+*/
